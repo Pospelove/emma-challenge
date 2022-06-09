@@ -15,10 +15,13 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  /*it('/claim-free-share (POST)', () => {
     return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
+      .post('/claim-free-share')
+      .send({
+        toAccount: "test1"
+      })
+      .expect(201)
       .expect('Hello World!');
-  });
+  });*/
 });

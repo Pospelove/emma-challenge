@@ -1,10 +1,17 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { BrokerSimulationService } from './broker/brokerSimulation.service';
+import { RandomService } from './random/random.service';
 
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [{
+    provide: "BrokerInterface",
+    useClass: BrokerSimulationService,
+  }, {
+    provide: "RandomService",
+    useClass: RandomService,
+  }],
 })
-export class AppModule {}
+export class AppModule { }
